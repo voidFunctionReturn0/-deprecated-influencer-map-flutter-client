@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "857558181937",
+    "project_id": "influencer-map-f16c8",
+    "storage_bucket": "influencer-map-f16c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857558181937:android:1225c493bff830c2634d10",
+        "android_client_info": {
+          "package_name": "com.dandypeople.influencer_map"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857558181937-1ih48ie9k5qsu5epipm2qeksoqvqmrh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdcLvdjKiubDfmN4tYjm8QR6ryEM7Wk1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857558181937-1ih48ie9k5qsu5epipm2qeksoqvqmrh5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "857558181937-7v45lo6iil0q17qhqjfvmachr5ulv6vr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dandypeople.influencerMap"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
