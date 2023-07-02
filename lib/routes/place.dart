@@ -174,7 +174,11 @@ class _PlacePageState extends State<PlacePage> {
                               if (isKakaoTalkSharingAvailable) {
                                 try {
                                   Uri uri = await kakao.ShareClient.instance
-                                      .shareDefault(template: defaultLocation);
+                                      .shareDefault(
+                                          template: defaultLocation,
+                                          serverCallbackArgs: {
+                                        'placeId': widget.place.id
+                                      });
                                   await kakao.ShareClient.instance
                                       .launchKakaoTalk(uri);
                                   if (kDebugMode) {
