@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:influencer_map/res/textStyles.dart';
 import 'package:influencer_map/src/common.dart';

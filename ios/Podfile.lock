@@ -1,18 +1,11 @@
 PODS:
   - Firebase/CoreOnly (10.9.0):
     - FirebaseCore (= 10.9.0)
-  - Firebase/DynamicLinks (10.9.0):
-    - Firebase/CoreOnly
-    - FirebaseDynamicLinks (~> 10.9.0)
   - Firebase/RemoteConfig (10.9.0):
     - Firebase/CoreOnly
     - FirebaseRemoteConfig (~> 10.9.0)
   - firebase_core (2.13.1):
     - Firebase/CoreOnly (= 10.9.0)
-    - Flutter
-  - firebase_dynamic_links (5.3.2):
-    - Firebase/DynamicLinks (= 10.9.0)
-    - firebase_core
     - Flutter
   - firebase_remote_config (4.2.2):
     - Firebase/RemoteConfig (= 10.9.0)
@@ -26,8 +19,6 @@ PODS:
     - GoogleUtilities/Logger (~> 7.8)
   - FirebaseCoreInternal (10.10.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseDynamicLinks (10.9.0):
-    - FirebaseCore (~> 10.0)
   - FirebaseInstallations (10.10.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
@@ -68,7 +59,6 @@ PODS:
 
 DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
-  - firebase_dynamic_links (from `.symlinks/plugins/firebase_dynamic_links/ios`)
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - Flutter (from `Flutter`)
   - flutter_compass (from `.symlinks/plugins/flutter_compass/ios`)
@@ -86,7 +76,6 @@ SPEC REPOS:
     - FirebaseABTesting
     - FirebaseCore
     - FirebaseCoreInternal
-    - FirebaseDynamicLinks
     - FirebaseInstallations
     - FirebaseRemoteConfig
     - GoogleUtilities
@@ -95,8 +84,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
-  firebase_dynamic_links:
-    :path: ".symlinks/plugins/firebase_dynamic_links/ios"
   firebase_remote_config:
     :path: ".symlinks/plugins/firebase_remote_config/ios"
   Flutter:
@@ -121,12 +108,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Firebase: bd152f0f3d278c4060c5c71359db08ebcfd5a3e2
   firebase_core: ce64b0941c6d87c6ef5022ae9116a158236c8c94
-  firebase_dynamic_links: db9f2ebcc3ea646e76a1d3ee37e9e57890ff0a83
   firebase_remote_config: a4d88ffa663b3ccd09115c90680b813203cb9184
   FirebaseABTesting: b2a87808d90f02766fcffb3957d3e397e7accc15
   FirebaseCore: b68d3616526ec02e4d155166bbafb8eca64af557
   FirebaseCoreInternal: 971029061d326000d65bfdc21f5502c75c8b0893
-  FirebaseDynamicLinks: 8cb66c4f403aa6ddf86ff3bc3c383a652f344ce9
   FirebaseInstallations: 52153982b057d3afcb4e1fbb3eb0b6d00611e681
   FirebaseRemoteConfig: 5ea5834e8c518f377bf1af2d97ebd611914ebf2d
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854

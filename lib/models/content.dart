@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:influencer_map/src/common.dart';
-import '../src/constants.dart' as constants;
 
 class Content {
   final String id;

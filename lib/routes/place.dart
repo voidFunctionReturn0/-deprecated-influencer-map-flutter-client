@@ -1,4 +1,3 @@
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:influencer_map/models/content.dart';
 import 'package:influencer_map/models/influencer.dart';
@@ -147,28 +146,8 @@ class _PlacePageState extends State<PlacePage> {
                           GestureDetector(
                             onTap: () async {
                               // dynamic link 만들기
-                              final dynamicLinkParams = DynamicLinkParameters(
-                                link: Uri.parse(
-                                    '${constants.dynamicLinkPrefixUrl}/place/${widget.place.id}'),
-                                uriPrefix: constants.dynamicLinkPrefixUrl,
-                                androidParameters: const AndroidParameters(
-                                    packageName: constants.packageName),
-                                iosParameters: const IOSParameters(
-                                    bundleId: constants.packageName),
-                                socialMetaTagParameters:
-                                    SocialMetaTagParameters(
-                                  imageUrl: Uri.parse(
-                                      constants.youtubeThumbnailUriStart +
-                                          widget.content.videoId +
-                                          constants.youtubeThumbnailUriEnd),
-                                  title: widget.place.name,
-                                  description: widget.content.name,
-                                ),
-                              );
-                              final dynamicLink = await FirebaseDynamicLinks
-                                  .instance
-                                  .buildShortLink(dynamicLinkParams);
-                              Share.share(dynamicLink.shortUrl.toString());
+
+                              Share.share("");
                             },
                             child: const SizedBox(
                               width: 84,

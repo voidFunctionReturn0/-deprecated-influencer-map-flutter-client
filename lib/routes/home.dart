@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
@@ -27,14 +25,12 @@ class Home extends StatefulWidget {
   final List<Influencer> influencers;
   final List<Place> places;
   final List<Content> contents;
-  final PendingDynamicLinkData? initialLink;
 
   const Home({
     super.key,
     required this.influencers,
     required this.places,
     required this.contents,
-    required this.initialLink,
   });
 
   @override
@@ -176,21 +172,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Builder(builder: (context) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          PendingDynamicLinkData? dynamicLink = widget.initialLink;
-          if (dynamicLink != null) {
-            showPlace(dynamicLink.link, context);
-          }
-
-          FirebaseDynamicLinks.instance.onLink.listen((pendingDynamicLinkData) {
-            if (pendingDynamicLinkData != null) {
-              showPlace(pendingDynamicLinkData.link, context);
-            }
-          }).onError((error) {
-            throw '## Dynamic link error: $error';
-          });
-        });
-
         return FlutterMap(
           mapController: _mapController,
           options: MapOptions(
@@ -328,7 +309,7 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => OssLicensesPage()));
+                          builder: (context) => const OssLicensesPage()));
                 },
                 child: const Icon(
                   Icons.info,

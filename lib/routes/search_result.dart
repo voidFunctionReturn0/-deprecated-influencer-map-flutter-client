@@ -106,7 +106,7 @@ class _SearchResultState extends State<SearchResult> {
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.all(
+                          borderRadius: const BorderRadius.all(
                             Radius.circular(8),
                           ),
                         ),

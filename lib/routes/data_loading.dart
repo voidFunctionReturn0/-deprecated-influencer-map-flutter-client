@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:influencer_map/models/content.dart';
 import 'package:influencer_map/models/place.dart';
@@ -12,9 +11,7 @@ import '../src/constants.dart' as constants;
 import 'package:http/http.dart' as http;
 
 class DataLoading extends StatefulWidget {
-  const DataLoading(this.initialLink, {super.key});
-
-  final PendingDynamicLinkData? initialLink;
+  const DataLoading({super.key});
 
   @override
   State<DataLoading> createState() => _DataLoadingState();
@@ -54,7 +51,6 @@ class _DataLoadingState extends State<DataLoading> {
             influencers: influencers,
             places: places,
             contents: contents,
-            initialLink: widget.initialLink,
           ),
         ),
       );

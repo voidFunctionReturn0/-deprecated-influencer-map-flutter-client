@@ -1,6 +1,4 @@
 import 'dart:io';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:influencer_map/models/content.dart';
 import 'package:influencer_map/models/influencer.dart';

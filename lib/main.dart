@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -16,9 +15,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  final PendingDynamicLinkData? initialLink =
-      await FirebaseDynamicLinks.instance.getInitialLink();
-
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
     statusBarIconBrightness: Brightness.dark,
     statusBarBrightness: Brightness.light,
@@ -30,14 +26,12 @@ void main() async {
   if (await neededUpdate()) {
     runApp(const NeededUpdate());
   } else {
-    runApp(MyApp(initialLink));
+    runApp(const MyApp());
   }
 }
 
 class MyApp extends StatelessWidget {
-  final PendingDynamicLinkData? initialLink;
-
-  const MyApp(this.initialLink, {super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +51,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: SafeArea(
-        child: DataLoading(
-          initialLink,
-        ),
+      home: const SafeArea(
+        child: DataLoading(),
       ),
     );
   }
