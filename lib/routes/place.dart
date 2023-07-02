@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:influencer_map/models/content.dart';
 import 'package:influencer_map/models/influencer.dart';
@@ -7,7 +8,8 @@ import 'package:influencer_map/res/textStyles.dart';
 import 'package:influencer_map/src/common.dart';
 import 'package:intl/intl.dart';
 import 'package:influencer_map/src/constants.dart' as constants;
-import 'package:share_plus/share_plus.dart';
+import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart' as kakao;
+// import 'package:share_plus/share_plus.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 // import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -145,9 +147,58 @@ class _PlacePageState extends State<PlacePage> {
                         children: [
                           GestureDetector(
                             onTap: () async {
-                              // dynamic link 만들기
+                              // 카카오톡 공유
+                              bool isKakaoTalkSharingAvailable = await kakao
+                                  .ShareClient.instance
+                                  .isKakaoTalkSharingAvailable();
 
-                              Share.share("");
+                              final kakao.LocationTemplate defaultLocation =
+                                  kakao.LocationTemplate(
+                                address: widget.place.address,
+                                content: kakao.Content(
+                                  title: widget.place.name,
+                                  description: widget.content.name,
+                                  imageUrl: Uri.parse(
+                                      constants.youtubeThumbnailUriStart +
+                                          widget.content.videoId +
+                                          constants.youtubeThumbnailUriEnd),
+                                  link: kakao.Link(
+                                    webUrl: Uri.parse(
+                                        'https://matube.notion.site/f55f713b956f4bb89151dadd3256ed74?pvs=4'),
+                                    mobileWebUrl: Uri.parse(
+                                        'https://matube.notion.site/f55f713b956f4bb89151dadd3256ed74?pvs=4'),
+                                  ),
+                                ),
+                              );
+
+                              if (isKakaoTalkSharingAvailable) {
+                                try {
+                                  Uri uri = await kakao.ShareClient.instance
+                                      .shareDefault(template: defaultLocation);
+                                  await kakao.ShareClient.instance
+                                      .launchKakaoTalk(uri);
+                                  if (kDebugMode) {
+                                    print('카카오톡 공유 완료');
+                                  }
+                                } catch (error) {
+                                  if (kDebugMode) {
+                                    print('카카오톡 공유 실패 $error');
+                                  }
+                                }
+                              } else {
+                                try {
+                                  Uri shareUrl = await kakao
+                                      .WebSharerClient.instance
+                                      .makeDefaultUrl(
+                                          template: defaultLocation);
+                                  await kakao.launchBrowserTab(shareUrl,
+                                      popupOpen: true);
+                                } catch (error) {
+                                  if (kDebugMode) {
+                                    print('카카오톡 공유 실패 $error');
+                                  }
+                                }
+                              }
                             },
                             child: const SizedBox(
                               width: 84,

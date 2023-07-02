@@ -5,8 +5,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:influencer_map/routes/data_loading.dart';
 import 'package:influencer_map/routes/needed_update.dart';
 import 'package:influencer_map/src/common.dart';
-
 import 'firebase_options.dart';
+import 'package:kakao_flutter_sdk_common/kakao_flutter_sdk_common.dart';
 
 void main() async {
   await dotenv.load(fileName: '.env');
@@ -22,6 +22,10 @@ void main() async {
     systemNavigationBarColor: Colors.white,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
+
+  KakaoSdk.init(
+    nativeAppKey: dotenv.env['KAKAO_NATIVE_APP_KEY'],
+  );
 
   if (await neededUpdate()) {
     runApp(const NeededUpdate());
