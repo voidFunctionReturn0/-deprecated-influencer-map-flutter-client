@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../models/influencer.dart';
 import '../models/content.dart';
@@ -42,7 +43,7 @@ class _SearchResultState extends State<SearchResult> {
 
   Map<String, String> headers = {
     'Accept': 'application/json',
-    'appKey': 'l7xx8b3b2af7de0745d8aca0bb72838254b9'
+    'appKey': dotenv.env['TMAP_APP_KEY']!
   };
 
   @override
@@ -90,105 +91,108 @@ class _SearchResultState extends State<SearchResult> {
     loadTMapPlaces();
 
     return Material(
-      child: Container(
-        width: deviceWidth,
-        height: deviceHeight,
-        color: Colors.white,
-        child: Column(
-          children: [
-            Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(8),
-                          ),
-                        ),
-                        child: Row(
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.search,
-                                size: 24,
-                              ),
+      child: SafeArea(
+        child: Container(
+          width: deviceWidth,
+          height: deviceHeight,
+          color: Colors.white,
+          child: Column(
+            children: [
+              Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(8),
                             ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 4),
-                                child: TextField(
-                                  controller: textEditingController,
-                                  textInputAction: TextInputAction.search,
-                                  decoration: const InputDecoration(
-                                    hintText: "위치 검색",
-                                    hintStyle: TextStyle(
-                                      color: Color(0xffB3B0B2),
-                                    ),
-                                    border: InputBorder.none,
-                                  ),
-                                  onSubmitted: (value) {
-                                    widget.searchKeyword = value;
-                                  },
+                          ),
+                          child: Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.search,
+                                  size: 24,
                                 ),
                               ),
-                            ),
-                          ],
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 4),
+                                  child: TextField(
+                                    controller: textEditingController,
+                                    textInputAction: TextInputAction.search,
+                                    decoration: const InputDecoration(
+                                      hintText: "위치 검색",
+                                      hintStyle: TextStyle(
+                                        color: Color(0xffB3B0B2),
+                                      ),
+                                      border: InputBorder.none,
+                                    ),
+                                    onSubmitted: (value) {
+                                      widget.searchKeyword = value;
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    // Expanded(
-                    //   child: TextField(
-                    //     controller: textEditingController,
-                    //     textInputAction: TextInputAction.search,
-                    //     decoration: const InputDecoration(
-                    //       hintText: "위치 검색",
-                    //       hintStyle: TextStyle(
-                    //         color: Color(0xffB3B0B2),
-                    //       ),
-                    //       border: InputBorder.none,
-                    //       icon: Padding(
-                    //         padding: EdgeInsets.all(8),
-                    //         child: Icon(
-                    //           Icons.search,
-                    //           size: 24,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     onSubmitted: (value) {
-                    //       widget.searchKeyword = value;
-                    //     },
-                    //   ),
-                    // ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(12),
-                          child: Center(child: Icon(Icons.close)),
+                      // Expanded(
+                      //   child: TextField(
+                      //     controller: textEditingController,
+                      //     textInputAction: TextInputAction.search,
+                      //     decoration: const InputDecoration(
+                      //       hintText: "위치 검색",
+                      //       hintStyle: TextStyle(
+                      //         color: Color(0xffB3B0B2),
+                      //       ),
+                      //       border: InputBorder.none,
+                      //       icon: Padding(
+                      //         padding: EdgeInsets.all(8),
+                      //         child: Icon(
+                      //           Icons.search,
+                      //           size: 24,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //     onSubmitted: (value) {
+                      //       widget.searchKeyword = value;
+                      //     },
+                      //   ),
+                      // ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(12),
+                            child: Center(child: Icon(Icons.close)),
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                )),
-            Results(
-              tMapPlaces: tMapPlaces,
-              setHomeMapCenter: widget.setHomeMapCenter,
-              setSearchResultMarker: widget.setSearchResultMarker,
-              containsSameLocationInPlaces: widget.containsSameLocationInPlaces,
-              influencers: widget.influencers,
-              places: widget.places,
-              contents: widget.contents,
-            ),
-          ],
+                      )
+                    ],
+                  )),
+              Results(
+                tMapPlaces: tMapPlaces,
+                setHomeMapCenter: widget.setHomeMapCenter,
+                setSearchResultMarker: widget.setSearchResultMarker,
+                containsSameLocationInPlaces:
+                    widget.containsSameLocationInPlaces,
+                influencers: widget.influencers,
+                places: widget.places,
+                contents: widget.contents,
+              ),
+            ],
+          ),
         ),
       ),
     );
