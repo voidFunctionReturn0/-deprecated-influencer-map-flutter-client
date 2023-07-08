@@ -28,11 +28,11 @@ void main() async {
   );
 
   String? url = await receiveKakaoScheme();
-  print("## url: ${url}");
+  print("## url: $url");
 
   kakaoSchemeStream.listen((url) {
     // url에 커스텀 URL 스킴이 할당됩니다. 할당된 스킴의 활용 코드를 작성합니다.
-    print('## url on execute: ${url}');
+    print('## url on execute: $url');
   }, onError: (e) {
     // 에러 상황의 예외 처리 코드를 작성합니다.
   });
