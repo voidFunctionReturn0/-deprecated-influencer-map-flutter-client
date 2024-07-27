@@ -1,16 +1,5 @@
-# influencer_map
+## 맛튜브 모바일 앱 클라이언트 소스코드
 
-A new Flutter project.
+![맛튜브 소개](https://github.com/user-attachments/assets/c9ca9a16-c24b-4940-a5a1-593c5493e32e)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+서버 소스코드: [https://github.com/voidFunctionReturn0/influencer-map-server2](https://github.com/voidFunctionReturn0/influencer-map-server2)
