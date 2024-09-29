@@ -41,7 +41,10 @@ class _DataLoadingState extends State<DataLoading> {
       contents.addAll(data);
     });
 
-    // await Future.delayed(const Duration(seconds: 1));
+    print("## places length: ${places.length}");
+    print("## contents length: ${contents.length}");
+
+    await Future.delayed(const Duration(seconds: 1));
 
     if (context.mounted) {
       Navigator.pushReplacement(

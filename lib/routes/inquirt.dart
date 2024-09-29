@@ -6,8 +6,8 @@ import '../src/constants.dart' as constants;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Inquiry extends StatelessWidget {
-  TextEditingController inputController1 = TextEditingController();
-  TextEditingController inputController2 = TextEditingController();
+  final TextEditingController inputController1 = TextEditingController();
+  final TextEditingController inputController2 = TextEditingController();
   Inquiry({Key? key}) : super(key: key);
 
   @override
@@ -100,8 +100,7 @@ class Inquiry extends StatelessWidget {
   void postInquiry(String email, String content) async {
     Uri url = constants.inquiryDBUri;
 
-    var response =
-        await http.post(url, headers: constants.inquiryPostHeaders, body: '''{
+    await http.post(url, headers: constants.inquiryPostHeaders, body: '''{
         "parent": {
           "database_id": "${dotenv.env['INQUIRY_DB_ID']}"
          },

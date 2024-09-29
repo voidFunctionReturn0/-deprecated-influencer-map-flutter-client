@@ -14,7 +14,6 @@ import 'package:latlong2/latlong.dart';
 import '../src/common.dart';
 
 class SearchResult extends StatefulWidget {
-  String searchKeyword;
   final Function(LatLng) setHomeMapCenter;
   final Function(TMapPlace) setSearchResultMarker;
   final Function(LatLng) containsSameLocationInPlaces;
@@ -24,7 +23,6 @@ class SearchResult extends StatefulWidget {
 
   SearchResult({
     super.key,
-    required this.searchKeyword,
     required this.setHomeMapCenter,
     required this.setSearchResultMarker,
     required this.containsSameLocationInPlaces,
@@ -38,6 +36,7 @@ class SearchResult extends StatefulWidget {
 }
 
 class _SearchResultState extends State<SearchResult> {
+  String searchKeyword = "";
   List<TMapPlace> tMapPlaces = [];
   var textEditingController = TextEditingController();
 
@@ -49,11 +48,11 @@ class _SearchResultState extends State<SearchResult> {
   @override
   void initState() {
     super.initState();
-    textEditingController.text = widget.searchKeyword;
+    textEditingController.text = searchKeyword;
   }
 
   Future<void> loadTMapPlaces() async {
-    await searchTMapPlace(widget.searchKeyword).then((data) {
+    await searchTMapPlace(searchKeyword).then((data) {
       tMapPlaces = data;
     });
     setState(() {});
@@ -135,7 +134,7 @@ class _SearchResultState extends State<SearchResult> {
                                       border: InputBorder.none,
                                     ),
                                     onSubmitted: (value) {
-                                      widget.searchKeyword = value;
+                                      searchKeyword = value;
                                     },
                                   ),
                                 ),
@@ -206,6 +205,7 @@ class Results extends StatelessWidget {
   final List<Influencer> influencers;
   final List<Place> places;
   final List<Content> contents;
+  final List<TMapPlace> tMapPlaces;
 
   Results({
     super.key,
@@ -217,8 +217,6 @@ class Results extends StatelessWidget {
     required this.places,
     required this.contents,
   });
-
-  List<TMapPlace> tMapPlaces;
 
   @override
   Widget build(BuildContext context) {

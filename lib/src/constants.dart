@@ -1,10 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-// String host = dotenv.env['HOST']!;
-// int port = int.parse(dotenv.env['PORT']!);
-
-String host = "150.230.254.215";
-int port = 8000;
+String host = dotenv.env['HOST']!;
+int port = int.parse(dotenv.env['PORT']!);
 
 const String packageName = 'com.dandypeople.influencer_map';
 const String dynamicLinkPrefixUrl = 'https://dandypeople.page.link';
