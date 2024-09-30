@@ -14,9 +14,9 @@ import 'package:influencer_map/src/constants.dart' as constants;
 import '../models/place.dart';
 import '../models/content.dart';
 import '../res/colors.dart';
-import '../res/latLngs.dart';
+import '../res/lat_lngs.dart';
 import '../res/strings.dart';
-import '../res/textStyles.dart';
+import '../res/text_styles.dart';
 import '../src/common.dart';
 // import 'inquirt.dart';
 // import 'oss_licenses.dart';
@@ -476,7 +476,7 @@ class _HomeState extends State<Home> {
     }
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
+    if (!serviceEnabled && mounted) {
       // ignore: use_build_context_synchronously
       showDialog(
         context: context,
@@ -505,8 +505,7 @@ class _HomeState extends State<Home> {
       isShownCurrentPosition = true;
     });
 
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+    Position position = await Geolocator.getCurrentPosition();
 
     mapController.move(LatLng(position.latitude, position.longitude),
         constants.mapZoomDefault);
@@ -515,9 +514,8 @@ class _HomeState extends State<Home> {
   Widget getCurrentLocationLayer() {
     if (isShownCurrentLocation == true) {
       return CurrentLocationLayer(
-        followCurrentLocationStream:
-            _followCurrentLocationStreamController.stream,
-        followOnLocationUpdate: followOnLocationUpdate,
+        alignPositionStream: _followCurrentLocationStreamController.stream,
+        alignPositionOnUpdate: followOnLocationUpdate,
       );
     } else {
       return const SizedBox();

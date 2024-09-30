@@ -4,7 +4,7 @@ import 'package:store_redirect/store_redirect.dart';
 
 import '../res/colors.dart';
 import '../res/strings.dart';
-import '../res/textStyles.dart';
+import '../res/text_styles.dart';
 
 class NeededUpdate extends StatelessWidget {
   const NeededUpdate({super.key});

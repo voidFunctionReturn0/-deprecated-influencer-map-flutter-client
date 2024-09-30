@@ -4,7 +4,7 @@ import 'package:influencer_map/models/content.dart';
 import 'package:influencer_map/models/influencer.dart';
 import 'package:influencer_map/models/place.dart';
 import 'package:influencer_map/res/colors.dart';
-import 'package:influencer_map/res/textStyles.dart';
+import 'package:influencer_map/res/text_styles.dart';
 import 'package:influencer_map/src/common.dart';
 import 'package:intl/intl.dart';
 import 'package:influencer_map/src/constants.dart' as constants;

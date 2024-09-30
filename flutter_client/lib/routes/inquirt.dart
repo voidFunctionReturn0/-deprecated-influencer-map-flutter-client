@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:influencer_map/res/strings.dart';
-import 'package:influencer_map/res/textStyles.dart';
+import 'package:influencer_map/res/text_styles.dart';
 import '../src/constants.dart' as constants;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Inquiry extends StatelessWidget {
   final TextEditingController inputController1 = TextEditingController();
   final TextEditingController inputController2 = TextEditingController();
-  Inquiry({Key? key}) : super(key: key);
+  Inquiry({super.key});
 
   @override
   Widget build(BuildContext context) {

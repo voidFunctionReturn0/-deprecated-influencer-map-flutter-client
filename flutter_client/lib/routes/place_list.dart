@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:influencer_map/res/textStyles.dart';
+import 'package:influencer_map/res/text_styles.dart';
 import 'package:influencer_map/src/common.dart';
 import '../models/content.dart';
 import '../models/influencer.dart';
@@ -15,13 +15,13 @@ class PlaceList extends StatelessWidget {
   final LatLng currentLocation;
 
   const PlaceList({
-    Key? key,
+    super.key,
     required this.influencers,
     required this.places,
     required this.contents,
     required this.setHomeMapCenter,
     required this.currentLocation,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

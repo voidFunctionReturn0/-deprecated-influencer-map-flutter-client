@@ -78,11 +78,10 @@ class FloatingButton extends StatelessWidget {
   final constants.ButtonShape shape;
 
   const FloatingButton(
-      {Key? key,
+      {super.key,
       required this.onTap,
       required this.iconData,
-      required this.shape})
-      : super(key: key);
+      required this.shape});
 
   @override
   Widget build(BuildContext context) {

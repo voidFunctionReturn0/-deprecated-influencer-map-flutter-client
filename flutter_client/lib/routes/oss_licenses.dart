@@ -6,8 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 class OssLicensesPage extends StatelessWidget {
   const OssLicensesPage({super.key});
 
-  // const OssLicensesPage({super.key});
-
   static Future<List<Package>> loadLicenses() async {
     // merging non-dart dependency list using LicenseRegistry.
     final lm = <String, List<String>>{};
@@ -109,7 +107,7 @@ class MiscOssLicenseSingle extends StatelessWidget {
                         style: const TextStyle(
                             color: Colors.blue,
                             decoration: TextDecoration.underline)),
-                    onTap: () => launch(package.homepage!),
+                    onTap: () => launchUrl(Uri.parse(package.homepage!)),
                   )),
             if (package.description.isNotEmpty || package.homepage != null)
               const Divider(),

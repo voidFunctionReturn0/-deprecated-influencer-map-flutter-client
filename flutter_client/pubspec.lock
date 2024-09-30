@@ -335,7 +335,7 @@ packages:
     source: hosted
     version: "7.0.0"
   flutter_oss_licenses:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_oss_licenses
       sha256: "1219e0e03faac80e68a554b79447d4936c79081d698abca912cc123fb77094aa"
@@ -449,7 +449,7 @@ packages:
     source: hosted
     version: "4.9.0"
   kakao_flutter_sdk_common:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: kakao_flutter_sdk_common
       sha256: "698d5f63d15438ad47af3baf0815fd30dfcacfa76640e96e5a18fc8504f25bde"

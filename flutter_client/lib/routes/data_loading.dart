@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:influencer_map/models/content.dart';
 import 'package:influencer_map/models/place.dart';
 import 'package:influencer_map/res/strings.dart';
-import 'package:influencer_map/res/textStyles.dart';
+import 'package:influencer_map/res/text_styles.dart';
 import 'package:influencer_map/routes/home.dart';
 import 'package:lottie/lottie.dart';
 import '../models/influencer.dart';
@@ -46,7 +46,7 @@ class _DataLoadingState extends State<DataLoading> {
 
     await Future.delayed(const Duration(seconds: 1));
 
-    if (context.mounted) {
+    if (mounted) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -63,7 +63,7 @@ class _DataLoadingState extends State<DataLoading> {
   Future<List<Influencer>> fetchInfluencers() async {
     final response = await http.get(constants.fetchInfluencersUri);
 
-    if (response.statusCode == constants.HTTP_STATUS_OK) {
+    if (response.statusCode == constants.httpStatusOk) {
       return parseInfluencers(utf8.decode(response.bodyBytes));
       // return compute(parsePlaces, response.body);
     } else {
@@ -74,7 +74,7 @@ class _DataLoadingState extends State<DataLoading> {
   Future<List<Place>> fetchPlaces() async {
     final response = await http.get(constants.fetchPlacesUri);
 
-    if (response.statusCode == constants.HTTP_STATUS_OK) {
+    if (response.statusCode == constants.httpStatusOk) {
       return parsePlaces(utf8.decode(response.bodyBytes));
     } else {
       throw Exception('Failed to load places');
@@ -84,7 +84,7 @@ class _DataLoadingState extends State<DataLoading> {
   Future<List<Content>> fetchContents() async {
     final response = await http.get(constants.fetchContentsUri);
 
-    if (response.statusCode == constants.HTTP_STATUS_OK) {
+    if (response.statusCode == constants.httpStatusOk) {
       return parseContents(utf8.decode(response.bodyBytes));
     } else {
       throw Exception('Failed to load places');

@@ -7,7 +7,7 @@ import '../models/content.dart';
 import '../models/place.dart';
 import '../models/t_map_place.dart';
 import '../res/colors.dart';
-import '../res/textStyles.dart';
+import '../res/text_styles.dart';
 import '../src/constants.dart' as constants;
 import 'package:latlong2/latlong.dart';
 
@@ -21,7 +21,7 @@ class SearchResult extends StatefulWidget {
   final List<Place> places;
   final List<Content> contents;
 
-  SearchResult({
+  const SearchResult({
     super.key,
     required this.setHomeMapCenter,
     required this.setSearchResultMarker,
@@ -70,7 +70,7 @@ class _SearchResultState extends State<SearchResult> {
             }),
         headers: headers);
 
-    if (response.statusCode == constants.HTTP_STATUS_OK) {
+    if (response.statusCode == constants.httpStatusOk) {
       return _parseTMapPlaces(utf8.decode(response.bodyBytes));
     } else {
       throw Exception('#### Faild to load TMapPlaces, ${response.statusCode}');
@@ -207,7 +207,7 @@ class Results extends StatelessWidget {
   final List<Content> contents;
   final List<TMapPlace> tMapPlaces;
 
-  Results({
+  const Results({
     super.key,
     required this.tMapPlaces,
     required this.setHomeMapCenter,

@@ -17,7 +17,7 @@ class Influencer {
     return Influencer(
         id: json['id'] as String,
         name: json['name'] as String,
-        platform: constants.Platform.YOUTUBE,
+        platform: constants.Platform.youtube,
         // platform: json['platform'] as constants.Platform,
         profileImage: Image.network(json['profileImage'] as String));
   }

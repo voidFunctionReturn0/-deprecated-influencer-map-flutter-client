@@ -7,7 +7,7 @@ const String packageName = 'com.dandypeople.influencer_map';
 const String dynamicLinkPrefixUrl = 'https://dandypeople.page.link';
 
 enum Platform {
-  YOUTUBE,
+  youtube,
   isAndroid;
 }
 
@@ -19,9 +19,9 @@ enum OS {
 const double mapZoomDefault = 13.5;
 const double mapZoomForPlace = 18.5;
 double lat1km = 1 / 109.958489129649955;
-const int HTTP_STATUS_OK = 200;
+const int httpStatusOk = 200;
 
-double INIT_ZOOM_LEVEL = 13.0;
+double initZoomLevel = 13.0;
 
 Uri fetchInfluencersUri =
     Uri(scheme: 'http', host: host, port: port, path: '/influencers');
