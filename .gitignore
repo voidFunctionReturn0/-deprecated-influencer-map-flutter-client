@@ -39,12 +39,12 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-/flutter_client/android/app/debug
-/flutter_client/android/app/profile
-/flutter_client/android/app/release
-/flutter_client/android/app/upload-keystore.jks
-/flutter_client/android/app/key.jks
-/flutter_client/android/key.properties
-/flutter_client/android/output_key_certificate.pem
+/android/app/debug
+/android/app/profile
+/android/app/release
 
 *.env
+/android/app/upload-keystore.jks
+/android/app/key.jks
+/android/key.properties
+/android/output_key_certificate.pem
