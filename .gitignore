@@ -8,7 +8,7 @@
 .buildlog/
 .history
 .svn/
-migrate_working_dir/
+/flutter_client/migrate_working_dir/
 
 # IntelliJ related
 *.iml
@@ -30,7 +30,7 @@ migrate_working_dir/
 .packages
 .pub-cache/
 .pub/
-/build/
+/flutter_client/build/
 
 # Symbolication related
 app.*.symbols
@@ -39,12 +39,12 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+/flutter_client/android/app/debug
+/flutter_client/android/app/profile
+/flutter_client/android/app/release
+/flutter_client/android/app/upload-keystore.jks
+/flutter_client/android/app/key.jks
+/flutter_client/android/key.properties
+/flutter_client/android/output_key_certificate.pem
 
 *.env
-/android/app/upload-keystore.jks
-/android/app/key.jks
-/android/key.properties
-/android/output_key_certificate.pem
