@@ -5,3 +5,4 @@
 
 ### 서버 소스코드
 [https://github.com/voidFunctionReturn0/influencer-map-server2](https://github.com/voidFunctionReturn0/influencer-map-server2)
+Google Play: https://play.google.com/store/apps/details?id=com.dandypeople.influencer_map&hl=ko
